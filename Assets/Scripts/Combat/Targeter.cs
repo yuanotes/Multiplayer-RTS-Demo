@@ -5,7 +5,12 @@ using Mirror;
 
 public class Targeter : NetworkBehaviour
 {
-  [SerializeField] private GameObject target;
+  private Targetable target;
+
+  public Targetable GetTarget()
+  {
+    return target;
+  }
 
   #region  Server
   [Command]
@@ -15,11 +20,12 @@ public class Targeter : NetworkBehaviour
     {
       return;
     }
-    target = newTarget.gameObject;
+    target = newTarget;
   }
 
   [Server]
-  public void ClearTarget() {
+  public void ClearTarget()
+  {
     target = null;
   }
 
