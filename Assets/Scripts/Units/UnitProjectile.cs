@@ -5,9 +5,10 @@ using Mirror;
 
 public class UnitProjectile : NetworkBehaviour
 {
-  [SerializeField] Rigidbody rb = null;
-  [SerializeField] float launchForce = 20f;
-  [SerializeField] float destroyAfterSeconds = 5f;
+  [SerializeField] private Rigidbody rb = null;
+  [SerializeField] private float launchForce = 20f;
+  [SerializeField] private int damage = 10;
+  [SerializeField] private float destroyAfterSeconds = 5f;
   // Start is called before the first frame update
   void Start()
   {
@@ -17,6 +18,21 @@ public class UnitProjectile : NetworkBehaviour
   public override void OnStartServer()
   {
     Invoke(nameof(DestroySelf), destroyAfterSeconds);
+  }
+
+  [ServerCallback]
+  private void OnTriggerEnter(Collider other) {
+    if (other.TryGetComponent<NetworkIdentity>(out NetworkIdentity networkIdentity)) {
+      if (networkIdentity.connectionToClient == connectionToClient) {
+        return;
+      }
+    }
+
+    if (other.TryGetComponent<Health>(out Health health)) {
+      health.DealDamage(damage);
+    }
+
+    DestroySelf();
   }
 
   private void DestroySelf()
