@@ -156,8 +156,9 @@ GameObject:
   - component: {fileID: 9015756579822076313}
   - component: {fileID: 3047743674515076405}
   - component: {fileID: 5358443931204516604}
+  - component: {fileID: -3182900180801198282}
   m_Layer: 0
-  m_Name: UnitSpawner
+  m_Name: UnitBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -207,13 +208,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 4990181650474323400}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 12b3ca8bdde894d40aa6a412e4734be1, type: 3}
+  m_Script: {fileID: 11500000, guid: 2800d1265aa190f48b62d7d24d77ea0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
   unitPrefab: {fileID: 1712699935350839994, guid: 5d3b11b3574684ecca3dfaa7fffc4bc4, type: 3}
   spawnUnitPosition: {fileID: 1767550055110786056}
+  health: {fileID: 3047743674515076405}
 --- !u!65 &8029031287065424732
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -271,6 +273,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthBarParent: {fileID: 7246467779708602918}
   healthBar: {fileID: 8393965400739990858}
+  health: {fileID: 3047743674515076405}
+--- !u!114 &-3182900180801198282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4990181650474323400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 041e71ecc27ca8f43a3beba8bfb01ae1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
   health: {fileID: 3047743674515076405}
 --- !u!1001 &1519023079295599074
 PrefabInstance:

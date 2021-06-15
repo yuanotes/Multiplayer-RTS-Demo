@@ -9,6 +9,7 @@ public class Unit : NetworkBehaviour
   [SerializeField] private UnityEvent onDeSelected = null;
   [SerializeField] private UnitMovement unitMovement = null;
   [SerializeField] private Targeter targeter = null;
+  [SerializeField] private Health health = null;
 
   public static event Action<Unit> ServerOnUnitSpawned;
   public static event Action<Unit> ServerOnUnitDespawned;
@@ -30,12 +31,20 @@ public class Unit : NetworkBehaviour
   public override void OnStartServer()
   {
     ServerOnUnitSpawned?.Invoke(this);
+    health.ServerOnDie += OnUnitHandleDie;
   }
 
   public override void OnStopServer()
   {
     ServerOnUnitDespawned?.Invoke(this);
+    health.ServerOnDie -= OnUnitHandleDie;
   }
+
+  [Server]
+  private void OnUnitHandleDie() {
+    NetworkServer.Destroy(gameObject);
+  }
+
   #endregion
 
   #region  Client

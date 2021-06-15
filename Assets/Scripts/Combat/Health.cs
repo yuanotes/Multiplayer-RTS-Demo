@@ -1,8 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Mirror;
 using System;
+using Mirror;
 
 public class Health : NetworkBehaviour
 {
@@ -34,8 +34,6 @@ public class Health : NetworkBehaviour
       }
 
       ServerOnDie?.Invoke();
-
-      Debug.Log("Object die!");
   }
   #endregion
 
