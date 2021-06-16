@@ -1,0 +1,10 @@
+-Builds
+-Library
+-*.meta
+-*.dll
+-*.asset
+-*.prefab
+-*.fbx
+-*.preset
+-*.png
+-*.mat

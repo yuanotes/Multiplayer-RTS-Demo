@@ -13,13 +13,13 @@ public class UnitBase : NetworkBehaviour
 
     #region Server
     public override void OnStartServer() {
-        health.ServerOnDie += OnHandleServerDie;
         OnUnitbaseSpawned?.Invoke(this);
+        health.ServerOnDie += OnHandleServerDie;
     }
 
     public override void OnStopServer() {
-        health.ServerOnDie -= OnHandleServerDie;
         OnUnitbaseDespawned?.Invoke(this);
+        health.ServerOnDie -= OnHandleServerDie;
     }
 
     private void OnHandleServerDie() {
