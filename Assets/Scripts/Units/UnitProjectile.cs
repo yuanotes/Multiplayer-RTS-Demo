@@ -7,7 +7,7 @@ public class UnitProjectile : NetworkBehaviour
 {
   [SerializeField] private Rigidbody rb = null;
   [SerializeField] private float launchForce = 20f;
-  [SerializeField] private int damage = 10;
+  [SerializeField] private int damage = 30;
   [SerializeField] private float destroyAfterSeconds = 5f;
   // Start is called before the first frame update
   void Start()

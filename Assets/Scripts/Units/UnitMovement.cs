@@ -12,7 +12,7 @@ public class UnitMovement : NetworkBehaviour
   [ServerCallback]
   private void Update()
   {
-    GameObject target = targeter.GetTarget().gameObject;
+    Targetable target = targeter.GetTarget();
 
     if (target != null)
     {

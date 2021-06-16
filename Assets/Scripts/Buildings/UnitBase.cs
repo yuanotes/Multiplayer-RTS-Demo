@@ -22,6 +22,7 @@ public class UnitBase : NetworkBehaviour
         health.ServerOnDie -= OnHandleServerDie;
     }
 
+    [Server]
     private void OnHandleServerDie() {
         NetworkServer.Destroy(gameObject);
     }

@@ -19,7 +19,7 @@ public class GameOverDisplay : MonoBehaviour {
         GameOverHandler.ClientHandleGameOver += HandleClientGameOver;
     }
 
-    private void OnDestory() {
+    private void OnDestroy() {
         GameOverHandler.ClientHandleGameOver -= HandleClientGameOver;
     }
 

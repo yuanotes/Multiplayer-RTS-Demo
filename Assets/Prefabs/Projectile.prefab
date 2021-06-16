@@ -69,7 +69,7 @@ MonoBehaviour:
   syncInterval: 0.1
   rb: {fileID: 3137634010927004905}
   launchForce: 20
-  damage: 10
+  damage: 30
   destroyAfterSeconds: 5
 --- !u!33 &2907139898339121142
 MeshFilter:
