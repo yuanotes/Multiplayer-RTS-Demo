@@ -9,6 +9,21 @@ public class UnitMovement : NetworkBehaviour
   [SerializeField] private float chaseRange = 10.0f;
 
   #region Server
+  public override void OnStartServer()
+  {
+    GameOverHandler.ServerGameOverEvent += onServerGameOver;
+  }
+
+  public override void OnStopServer()
+  {
+    GameOverHandler.ServerGameOverEvent -= onServerGameOver;
+
+  }
+  [Server]
+  private void onServerGameOver() {
+    agent.ResetPath();
+  }
+
   [ServerCallback]
   private void Update()
   {

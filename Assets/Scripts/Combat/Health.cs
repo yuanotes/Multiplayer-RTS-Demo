@@ -19,27 +19,47 @@ public class Health : NetworkBehaviour
 
   public override void OnStartServer()
   {
-      currentHealth = maxHealth;
+    currentHealth = maxHealth;
+    UnitBase.ServerPlayerDieEvent += onServerPlayerDie;
+  }
+
+  public override void OnStopServer()
+  {
+    UnitBase.ServerPlayerDieEvent -= onServerPlayerDie;
   }
 
   [Server]
-  public void DealDamage(int damage) {
-      if (currentHealth == 0) {
-          return;
-      }
-      currentHealth = Math.Max(currentHealth - damage, 0);
+  private void onServerPlayerDie(int playerDieID)
+  {
+    if (connectionToClient.connectionId != playerDieID)
+    {
+      return;
+    }
+    DealDamage(currentHealth);
+  }
 
-      if (currentHealth > 0) {
-          return;
-      }
+  [Server]
+  public void DealDamage(int damage)
+  {
+    if (currentHealth == 0)
+    {
+      return;
+    }
+    currentHealth = Math.Max(currentHealth - damage, 0);
 
-      ServerDieEvent?.Invoke();
+    if (currentHealth > 0)
+    {
+      return;
+    }
+
+    ServerDieEvent?.Invoke();
   }
   #endregion
 
   #region Client
-  void onHealthUpdated(int oldValue, int newValue) {
-      ClientHealthUpdatedEvent?.Invoke(newValue, maxHealth);
+  void onHealthUpdated(int oldValue, int newValue)
+  {
+    ClientHealthUpdatedEvent?.Invoke(newValue, maxHealth);
   }
 
   #endregion

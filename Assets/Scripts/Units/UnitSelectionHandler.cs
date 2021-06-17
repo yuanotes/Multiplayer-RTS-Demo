@@ -5,7 +5,6 @@ using UnityEngine.InputSystem;
 
 public class UnitSelectionHandler : MonoBehaviour
 {
-
   [SerializeField] private RectTransform dragSelection = null;
   [SerializeField] private LayerMask layerMask = new LayerMask();
 
@@ -20,11 +19,13 @@ public class UnitSelectionHandler : MonoBehaviour
   {
     mainCamera = Camera.main;
     Unit.AuthorityUnitDespawnedEvent += onAuthorityDespawned;
-  }
+    GameOverHandler.ClientGameOverEvent += onClientGameOver;
+    }
 
   private void OnDestroy() {
     Unit.AuthorityUnitDespawnedEvent -= onAuthorityDespawned;
-  }
+    GameOverHandler.ClientGameOverEvent -= onClientGameOver;
+    }
 
   private void Update()
   {
@@ -130,4 +131,7 @@ public class UnitSelectionHandler : MonoBehaviour
     SelectedUnites.Remove(unit);
   }
 
+  private void onClientGameOver(string winner) {
+    enabled = false;
+  }
 }

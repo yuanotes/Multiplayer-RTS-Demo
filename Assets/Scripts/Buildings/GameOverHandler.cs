@@ -5,7 +5,7 @@ using System;
 
 public class GameOverHandler : NetworkBehaviour
 {
-    public static event Action ServerOnGameOverEvent;
+    public static event Action ServerGameOverEvent;
     public static event Action<string> ClientGameOverEvent;
     private List<UnitBase> unitBases = new List<UnitBase>();
     #region Server
@@ -38,7 +38,7 @@ public class GameOverHandler : NetworkBehaviour
 
         RpcHandleGameOver($"Player {playerID}");
 
-        ServerOnGameOverEvent?.Invoke();
+        ServerGameOverEvent?.Invoke();
     }
 
     #endregion
