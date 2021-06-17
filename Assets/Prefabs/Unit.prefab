@@ -50,7 +50,7 @@ GameObject:
   - component: {fileID: 2792430906599387551}
   - component: {fileID: 4575481075585918874}
   - component: {fileID: 4173496198787541361}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Unit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -495,9 +495,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2097066298767119416, guid: 970ff721d66dabd4c841e87faee23959, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6607598548551864853, guid: 970ff721d66dabd4c841e87faee23959, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8179671052818877380, guid: 970ff721d66dabd4c841e87faee23959, type: 3}
       propertyPath: m_Name
       value: HealthBarCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 8179671052818877380, guid: 970ff721d66dabd4c841e87faee23959, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8179671052818877380, guid: 970ff721d66dabd4c841e87faee23959, type: 3}
       propertyPath: m_IsActive
@@ -588,6 +600,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: c168b0f34c3814f08be87541e830b470, type: 3}
       propertyPath: m_Name
       value: tank with lazer cannon
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c168b0f34c3814f08be87541e830b470, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c168b0f34c3814f08be87541e830b470, type: 3}
