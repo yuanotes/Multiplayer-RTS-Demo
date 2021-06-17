@@ -16,11 +16,11 @@ public class GameOverDisplay : MonoBehaviour {
     }
 
     private void Start() {
-        GameOverHandler.ClientHandleGameOver += HandleClientGameOver;
+        GameOverHandler.ClientGameOverEvent += HandleClientGameOver;
     }
 
     private void OnDestroy() {
-        GameOverHandler.ClientHandleGameOver -= HandleClientGameOver;
+        GameOverHandler.ClientGameOverEvent -= HandleClientGameOver;
     }
 
     private void HandleClientGameOver(string winner) {

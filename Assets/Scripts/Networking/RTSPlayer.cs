@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using Mirror;
 using UnityEngine;
@@ -10,16 +9,16 @@ public class RTSPlayer : NetworkBehaviour
   #region Server
   public override void OnStartServer()
   {
-    Unit.ServerOnUnitSpawned += ServerOnUnitSpawned;
-    Unit.ServerOnUnitDespawned += ServerOnUnitDespawned;
+    Unit.ServerUnitSpawnedEvent += onServerUnitSpawned;
+    Unit.ServerUnitDespawnedEvent += onServerUnitDespawned;
   }
 
   public override void OnStopServer()
   {
-    Unit.ServerOnUnitSpawned -= ServerOnUnitSpawned;
-    Unit.ServerOnUnitDespawned -= ServerOnUnitDespawned;
+    Unit.ServerUnitSpawnedEvent -= onServerUnitSpawned;
+    Unit.ServerUnitDespawnedEvent -= onServerUnitDespawned;
   }
-  private void ServerOnUnitSpawned(Unit unit)
+  private void onServerUnitSpawned(Unit unit)
   {
     if (unit.connectionToClient.connectionId != connectionToClient.connectionId)
     {
@@ -28,7 +27,7 @@ public class RTSPlayer : NetworkBehaviour
     myUnits.Add(unit);
   }
 
-  private void ServerOnUnitDespawned(Unit unit)
+  private void onServerUnitDespawned(Unit unit)
   {
     if (unit.connectionToClient.connectionId != connectionToClient.connectionId)
     {
@@ -44,17 +43,17 @@ public class RTSPlayer : NetworkBehaviour
   }
   public override void OnStartClient()
   {
-    Unit.AuthorityOnUnitSpawned += AuthorityOnUnitSpawned;
-    Unit.AuthorityOnUnitDespawned += AuthorityOnUnitDespawned;
+    Unit.AuthorityUnitSpawnedEvent += onAuthorityUnitSpawned;
+    Unit.AuthorityUnitDespawnedEvent += onAuthorityUnitDespawned;
   }
 
   public override void OnStopClient()
   {
-    Unit.AuthorityOnUnitSpawned -= AuthorityOnUnitSpawned;
-    Unit.AuthorityOnUnitDespawned -= AuthorityOnUnitDespawned;
+    Unit.AuthorityUnitSpawnedEvent -= onAuthorityUnitSpawned;
+    Unit.AuthorityUnitDespawnedEvent -= onAuthorityUnitDespawned;
   }
 
-  private void AuthorityOnUnitSpawned(Unit unit)
+  private void onAuthorityUnitSpawned(Unit unit)
   {
     if (!hasAuthority)
     {
@@ -63,7 +62,7 @@ public class RTSPlayer : NetworkBehaviour
     myUnits.Add(unit);
   }
 
-  private void AuthorityOnUnitDespawned(Unit unit)
+  private void onAuthorityUnitDespawned(Unit unit)
   {
     if (!hasAuthority)
     {

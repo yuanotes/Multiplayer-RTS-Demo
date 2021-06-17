@@ -10,13 +10,13 @@ public class HealthDisplay : MonoBehaviour
     [SerializeField] private Health health = null;
     void Awake()
     {
-        health.ClientOnHealthUpdated += onHealthUpdated;
+        health.ClientHealthUpdatedEvent += onHealthUpdated;
     }
 
     // Update is called once per frame
     void OnDestroy()
     {
-        health.ClientOnHealthUpdated -= onHealthUpdated;
+        health.ClientHealthUpdatedEvent -= onHealthUpdated;
     }
 
     private void onHealthUpdated(int currentHealth, int maxHealth) {

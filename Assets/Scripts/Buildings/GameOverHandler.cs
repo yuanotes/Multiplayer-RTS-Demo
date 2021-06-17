@@ -5,47 +5,50 @@ using System;
 
 public class GameOverHandler : NetworkBehaviour
 {
-  public static event Action<string> ClientHandleGameOver;
-  private List<UnitBase> unitBases = new List<UnitBase>();
-  #region Server
-  public override void OnStartServer()
-  {
-    UnitBase.OnUnitbaseSpawned += ServerHandleUnitBaseSpawned;
-    UnitBase.OnUnitbaseDespawned += ServerHandleUnitBaseDespawned;
-  }
-
-  public override void OnStopServer()
-  {
-    UnitBase.OnUnitbaseSpawned -= ServerHandleUnitBaseSpawned;
-    UnitBase.OnUnitbaseDespawned -= ServerHandleUnitBaseDespawned;
-  }
-
-  [Server]
-  private void ServerHandleUnitBaseSpawned(UnitBase unitBase)
-  {
-    unitBases.Add(unitBase);
-  }
-
-  [Server]
-  private void ServerHandleUnitBaseDespawned(UnitBase unitBase)
-  {
-    unitBases.Remove(unitBase);
-
-    if (unitBases.Count == 1)
+    public static event Action ServerOnGameOverEvent;
+    public static event Action<string> ClientGameOverEvent;
+    private List<UnitBase> unitBases = new List<UnitBase>();
+    #region Server
+    public override void OnStartServer()
     {
-      int playerID = unitBases[0].connectionToClient.connectionId;
-      RpcHandleGameOver($"Player {playerID}");
+        UnitBase.UnitbaseSpawnedEvent += OnServerUnitbaseSpawned;
+        UnitBase.UnitbaseDespawnedEvent += OnServerUnitBaseDespawned;
     }
-  }
 
-  #endregion
+    public override void OnStopServer()
+    {
+        UnitBase.UnitbaseSpawnedEvent -= OnServerUnitbaseSpawned;
+        UnitBase.UnitbaseDespawnedEvent -= OnServerUnitBaseDespawned;
+    }
 
-  #region Client
-  [ClientRpc]
-  private void RpcHandleGameOver(string winner)
-  {
-    ClientHandleGameOver?.Invoke(winner);
-  }
+    [Server]
+    private void OnServerUnitbaseSpawned(UnitBase unitBase)
+    {
+        unitBases.Add(unitBase);
+    }
 
-  #endregion
+    [Server]
+    private void OnServerUnitBaseDespawned(UnitBase unitBase)
+    {
+        unitBases.Remove(unitBase);
+
+        if (unitBases.Count != 1) return;
+
+        int playerID = unitBases[0].connectionToClient.connectionId;
+
+        RpcHandleGameOver($"Player {playerID}");
+
+        ServerOnGameOverEvent?.Invoke();
+    }
+
+    #endregion
+
+    #region Client
+    [ClientRpc]
+    private void RpcHandleGameOver(string winner)
+    {
+        ClientGameOverEvent?.Invoke(winner);
+    }
+
+    #endregion
 }

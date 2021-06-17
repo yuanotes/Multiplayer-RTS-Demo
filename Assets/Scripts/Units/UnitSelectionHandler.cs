@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using Mirror;
 using UnityEngine;
@@ -20,11 +19,11 @@ public class UnitSelectionHandler : MonoBehaviour
   private void Start()
   {
     mainCamera = Camera.main;
-    Unit.AuthorityOnUnitDespawned += OnAuthorityDespawned;
+    Unit.AuthorityUnitDespawnedEvent += onAuthorityDespawned;
   }
 
   private void OnDestroy() {
-    Unit.AuthorityOnUnitDespawned -= OnAuthorityDespawned;
+    Unit.AuthorityUnitDespawnedEvent -= onAuthorityDespawned;
   }
 
   private void Update()
@@ -127,7 +126,7 @@ public class UnitSelectionHandler : MonoBehaviour
     }
   }
 
-  private void OnAuthorityDespawned(Unit unit) {
+  private void onAuthorityDespawned(Unit unit) {
     SelectedUnites.Remove(unit);
   }
 

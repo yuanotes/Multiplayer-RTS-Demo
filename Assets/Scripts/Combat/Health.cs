@@ -11,9 +11,9 @@ public class Health : NetworkBehaviour
   [SyncVar(hook = nameof(onHealthUpdated))]
   private int currentHealth;
 
-  public event Action ServerOnDie;
+  public event Action ServerDieEvent;
 
-  public event Action<int, int> ClientOnHealthUpdated;
+  public event Action<int, int> ClientHealthUpdatedEvent;
 
   #region Server
 
@@ -33,13 +33,13 @@ public class Health : NetworkBehaviour
           return;
       }
 
-      ServerOnDie?.Invoke();
+      ServerDieEvent?.Invoke();
   }
   #endregion
 
   #region Client
   void onHealthUpdated(int oldValue, int newValue) {
-      ClientOnHealthUpdated?.Invoke(newValue, maxHealth);
+      ClientHealthUpdatedEvent?.Invoke(newValue, maxHealth);
   }
 
   #endregion

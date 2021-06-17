@@ -8,23 +8,25 @@ public class UnitBase : NetworkBehaviour
 {
     [SerializeField] private Health health = null;
 
-    public static event Action<UnitBase> OnUnitbaseSpawned;
-    public static event Action<UnitBase> OnUnitbaseDespawned;
+    public static event Action<int> ServerOnPlayerDieEvent;
+    public static event Action<UnitBase> UnitbaseSpawnedEvent;
+    public static event Action<UnitBase> UnitbaseDespawnedEvent;
 
     #region Server
     public override void OnStartServer() {
-        OnUnitbaseSpawned?.Invoke(this);
-        health.ServerOnDie += OnHandleServerDie;
+        UnitbaseSpawnedEvent?.Invoke(this);
+        health.ServerDieEvent += OnServerDie;
     }
 
     public override void OnStopServer() {
-        OnUnitbaseDespawned?.Invoke(this);
-        health.ServerOnDie -= OnHandleServerDie;
+        UnitbaseDespawnedEvent?.Invoke(this);
+        health.ServerDieEvent -= OnServerDie;
     }
 
     [Server]
-    private void OnHandleServerDie() {
+    private void OnServerDie() {
         NetworkServer.Destroy(gameObject);
+        ServerOnPlayerDieEvent?.Invoke(connectionToClient.connectionId);
     }
     #endregion
 
