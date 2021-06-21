@@ -5,18 +5,20 @@ using System;
 
 public class Unit : NetworkBehaviour
 {
+  [SerializeField] private int unitCost = 100;
   [SerializeField] private UnityEvent onSelected = null;
   [SerializeField] private UnityEvent onDeSelected = null;
   [SerializeField] private UnitMovement unitMovement = null;
   [SerializeField] private Targeter targeter = null;
   [SerializeField] private Health health = null;
 
-  public static event Action<Unit> ServerUnitSpawnedEvent;
-  public static event Action<Unit> ServerUnitDespawnedEvent;
+  public static event Action<Unit> ServerSpawnedUnitEvent;
+  public static event Action<Unit> ServerDespawnedUnitEvent;
 
   public static event Action<Unit> AuthorityUnitSpawnedEvent;
   public static event Action<Unit> AuthorityUnitDespawnedEvent;
 
+  public int GetUnitCost() { return unitCost; }
   public UnitMovement GetUnitMovement()
   {
     return unitMovement;
@@ -30,13 +32,13 @@ public class Unit : NetworkBehaviour
   #region Server
   public override void OnStartServer()
   {
-    ServerUnitSpawnedEvent?.Invoke(this);
+    ServerSpawnedUnitEvent?.Invoke(this);
     health.ServerDieEvent += onUnitDie;
   }
 
   public override void OnStopServer()
   {
-    ServerUnitDespawnedEvent?.Invoke(this);
+    ServerDespawnedUnitEvent?.Invoke(this);
     health.ServerDieEvent -= onUnitDie;
   }
 
@@ -49,16 +51,13 @@ public class Unit : NetworkBehaviour
 
   #region  Client
 
-  public override void OnStartClient()
+  public override void OnStartAuthority()
   {
-    if (!isClientOnly) { return; }
-    if (!hasAuthority) { return; }
     AuthorityUnitSpawnedEvent?.Invoke(this);
   }
 
   public override void OnStopClient()
   {
-    if (isClientOnly) { return; }
     if (!hasAuthority) { return; }
     AuthorityUnitDespawnedEvent?.Invoke(this);
   }

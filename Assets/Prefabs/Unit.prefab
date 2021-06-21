@@ -180,6 +180,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
+  unitCost: 100
   onSelected:
     m_PersistentCalls:
       m_Calls:

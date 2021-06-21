@@ -65,10 +65,13 @@ MonoBehaviour:
   playerSpawnMethod: 1
   spawnPrefabs:
   - {fileID: 1712699935350839994, guid: 5d3b11b3574684ecca3dfaa7fffc4bc4, type: 3}
-  - {fileID: 4990181650474323400, guid: 43f16aab7187c4d328d0496a8529c2ff, type: 3}
+  - {fileID: 222141808946448978, guid: ef28e6016478cd34faef7d24a6b2050d, type: 3}
+  - {fileID: 7201763360714844224, guid: e35d19454850a4c8ab415fbeced0c328, type: 3}
   - {fileID: 116453974631075929, guid: c2e2c7c1d7f68a34ebbbc7c3ba4fce03, type: 3}
-  spawnUnitPrefab: {fileID: 4990181650474323400, guid: 43f16aab7187c4d328d0496a8529c2ff, type: 3}
-  gameOverHandlerPrefab: {fileID: 1036287811313987960, guid: c2e2c7c1d7f68a34ebbbc7c3ba4fce03, type: 3}
+  - {fileID: 222141808946448978, guid: f14d97422fe06d341a5e6e8d8f581511, type: 3}
+  - {fileID: 222141808946448978, guid: a9806a7319b63d34ab1e19560ac1d580, type: 3}
+  spawnUnitPrefab: {fileID: 222141808946448978, guid: ef28e6016478cd34faef7d24a6b2050d, type: 3}
+  gameOverHandlerPrefab: {fileID: 116453974631075929, guid: c2e2c7c1d7f68a34ebbbc7c3ba4fce03, type: 3}
 --- !u!114 &9057177908932178064
 MonoBehaviour:
   m_ObjectHideFlags: 0
