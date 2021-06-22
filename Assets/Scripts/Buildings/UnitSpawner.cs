@@ -34,6 +34,7 @@ public class UnitSpawner : NetworkBehaviour, IPointerClickHandler
 
   public override void OnStartServer()
   {
+    timedImage.fillAmount = 0;
     health.ServerDieEvent += OnServerDie;
     player = connectionToClient.identity.GetComponent<RTSPlayer>();
   }

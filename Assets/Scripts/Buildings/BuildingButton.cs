@@ -11,7 +11,7 @@ public class BuildingButton : MonoBehaviour, IPointerDownHandler, IPointerUpHand
   [SerializeField] private GameObject buildingPreviewInstance = null;
   [SerializeField] private Renderer buildingPreviewInstanceRender = null;
   [SerializeField] private Building building = null;
-  [SerializeField] private Image icon  = null;
+  [SerializeField] private Image icon = null;
   [SerializeField] private LayerMask layerMask = new LayerMask();
   private Camera mainCamera;
   private RTSPlayer player;
@@ -47,7 +47,7 @@ public class BuildingButton : MonoBehaviour, IPointerDownHandler, IPointerUpHand
     Ray ray = mainCamera.ScreenPointToRay(point);
     if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, layerMask))
     {
-        player.CmdTryPlaceBuilding(building.GetId(), hit.point);
+      player.CmdTryPlaceBuilding(building.GetId(), hit.point);
     }
     Destroy(buildingPreviewInstance);
   }
@@ -64,6 +64,16 @@ public class BuildingButton : MonoBehaviour, IPointerDownHandler, IPointerUpHand
         buildingPreviewInstance.SetActive(true);
       }
       buildingPreviewInstance.transform.position = hit.point;
+
+      if (buildingPreviewInstanceRender == null) return;
+      if (player.CanPlaceBuilding(building, hit.point))
+      {
+        buildingPreviewInstanceRender.material.color = Color.green;
+      }
+      else
+      {
+        buildingPreviewInstanceRender.material.color = Color.red;
+      }
     }
   }
 }
