@@ -25,7 +25,7 @@ public class UnitSpawner : NetworkBehaviour, IPointerClickHandler
   [SyncVar(hook = nameof(onClientQuenedUnitUpdated))]
   private int queuedUnits;
 
-  [SyncVar(hook=nameof(onClientTimerUpdated))]
+  [SyncVar]
   private float unitTimer = 0;
 
 
@@ -44,20 +44,26 @@ public class UnitSpawner : NetworkBehaviour, IPointerClickHandler
     health.ServerDieEvent -= OnServerDie;
   }
 
-  [Server]
   private void Update() {
-    if (queuedUnits == 0) { return; }
-
-    unitTimer += Time.deltaTime;
-    if (unitTimer >= unitSpawnduration) {
-      SpawnUnit();
-      queuedUnits --;
-      unitTimer = 0;
+    if (isServer) {
+      serverUpdateSpawning();
     }
-
+    if (isClient) {
+      clientUpdateTimer();
+    }
   }
 
   [Server]
+  private void serverUpdateSpawning() {
+      if (queuedUnits == 0) { return; }
+      unitTimer += Time.deltaTime;
+      if (unitTimer >= unitSpawnduration)
+      {
+        SpawnUnit();
+        queuedUnits--;
+        unitTimer = 0;
+      }
+  }
   private void OnServerDie()
   {
     NetworkServer.Destroy(gameObject);
@@ -104,9 +110,9 @@ public class UnitSpawner : NetworkBehaviour, IPointerClickHandler
     remainingUnitsText.text = $"{newValue}";
   }
 
-  private void onClientTimerUpdated(float oldValue, float newValue) {
+  private void clientUpdateTimer() {
     float progress = unitTimer / unitSpawnduration;
-    if (progress < timedImage.fillAmount) {
+    if (progress <= timedImage.fillAmount) {
       timedImage.fillAmount = progress;
     } else {
       timedImage.fillAmount = Mathf.SmoothDamp(timedImage.fillAmount, progress, ref progressVelocity, 0.1f);
