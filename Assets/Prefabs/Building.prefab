@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 422905774105046920}
   - component: {fileID: 2938925817732015676}
   - component: {fileID: 809444192883889137}
+  - component: {fileID: 7623385969529035552}
   m_Layer: 0
   m_Name: Building
   m_TagString: Untagged
@@ -147,6 +148,21 @@ MonoBehaviour:
   icon: {fileID: -2413806693520163455, guid: 83eef39c40692412d9c6a190a97bc23c, type: 3}
   id: -1
   price: 0
+--- !u!114 &7623385969529035552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6444863214852319603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acaadb9a7ced0b140827a001b572abb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  renderers: []
 --- !u!1001 &1922819902314229030
 PrefabInstance:
   m_ObjectHideFlags: 0

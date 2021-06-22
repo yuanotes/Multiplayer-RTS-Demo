@@ -1,20 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &7635387760875918316
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 222141808946448978}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 041e71ecc27ca8f43a3beba8bfb01ae1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncMode: 0
-  syncInterval: 0.1
-  health: {fileID: 6601287017756837540}
 --- !u!1 &5873310387424524295
 GameObject:
   m_ObjectHideFlags: 0
@@ -96,6 +81,21 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &7635387760875918316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 222141808946448978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 041e71ecc27ca8f43a3beba8bfb01ae1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  health: {fileID: 6601287017756837540}
 --- !u!1001 &6513880986663854881
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -123,6 +123,10 @@ PrefabInstance:
       propertyPath: price
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 809444192883889137, guid: a43fee60b394d604e966d5dd7f12e5e0, type: 3}
+      propertyPath: mainRenderer
+      value: 
+      objectReference: {fileID: 2429525155293782276}
     - target: {fileID: 809444192883889137, guid: a43fee60b394d604e966d5dd7f12e5e0, type: 3}
       propertyPath: buildingPreview
       value: 
@@ -219,6 +223,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: UnitBase
       objectReference: {fileID: 0}
+    - target: {fileID: 7623385969529035552, guid: a43fee60b394d604e966d5dd7f12e5e0, type: 3}
+      propertyPath: renderers.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7623385969529035552, guid: a43fee60b394d604e966d5dd7f12e5e0, type: 3}
+      propertyPath: renderers.Array.data[0]
+      value: 
+      objectReference: {fileID: 2429525155293782276}
     - target: {fileID: 7722334153205425890, guid: a43fee60b394d604e966d5dd7f12e5e0, type: 3}
       propertyPath: m_IsActive
       value: 1

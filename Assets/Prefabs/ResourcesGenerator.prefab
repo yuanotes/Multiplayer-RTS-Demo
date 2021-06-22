@@ -45,6 +45,10 @@ PrefabInstance:
       value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 809444192883889137, guid: a43fee60b394d604e966d5dd7f12e5e0, type: 3}
+      propertyPath: mainRenderer
+      value: 
+      objectReference: {fileID: 6875488144044700605}
+    - target: {fileID: 809444192883889137, guid: a43fee60b394d604e966d5dd7f12e5e0, type: 3}
       propertyPath: buildingPreview
       value: 
       objectReference: {fileID: 95242328715719443}
@@ -140,6 +144,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: ResourcesGenerator
       objectReference: {fileID: 0}
+    - target: {fileID: 7623385969529035552, guid: a43fee60b394d604e966d5dd7f12e5e0, type: 3}
+      propertyPath: renderers.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7623385969529035552, guid: a43fee60b394d604e966d5dd7f12e5e0, type: 3}
+      propertyPath: renderers.Array.data[0]
+      value: 
+      objectReference: {fileID: 6875488144044700605}
     - target: {fileID: 7722334153205425890, guid: a43fee60b394d604e966d5dd7f12e5e0, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -291,5 +303,10 @@ PrefabInstance:
 --- !u!1 &95242328715719443 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8636462466087580965, guid: fdd61c4875a056e45b19be5bfcbe8a4b, type: 3}
+  m_PrefabInstance: {fileID: 8541286418399004214}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &6875488144044700605 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 3018004062545851787, guid: fdd61c4875a056e45b19be5bfcbe8a4b, type: 3}
   m_PrefabInstance: {fileID: 8541286418399004214}
   m_PrefabAsset: {fileID: 0}

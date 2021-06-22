@@ -68,11 +68,11 @@ public class BuildingButton : MonoBehaviour, IPointerDownHandler, IPointerUpHand
       if (buildingPreviewInstanceRender == null) return;
       if (player.CanPlaceBuilding(building, hit.point))
       {
-        buildingPreviewInstanceRender.material.color = Color.green;
+        buildingPreviewInstanceRender.material.SetColor("_Color", Color.green);
       }
       else
       {
-        buildingPreviewInstanceRender.material.color = Color.red;
+        buildingPreviewInstanceRender.material.SetColor("_Color", Color.red);
       }
     }
   }

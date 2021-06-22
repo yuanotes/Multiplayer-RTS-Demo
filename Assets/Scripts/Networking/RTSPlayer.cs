@@ -7,9 +7,15 @@ public class RTSPlayer : NetworkBehaviour
 {
   [SerializeField] private float buildingDistance = 2f;
   [SerializeField] private Building[] buildings = new Building[0];
-  [SerializeField] private List<Unit> myUnits = new List<Unit>();
-  [SerializeField] private List<Building> myBuildings = new List<Building>();
   [SerializeField] private LayerMask buildingBlockLayer = new LayerMask();
+  private List<Unit> myUnits = new List<Unit>();
+  private List<Building> myBuildings = new List<Building>();
+
+  [SerializeField] private Color teamColor = new Color();
+
+  public Color GetTeamColor() {
+    return teamColor;
+  }
 
   [SyncVar(hook = nameof(onUpdateResources))]
   private int resources = 500;
@@ -19,8 +25,6 @@ public class RTSPlayer : NetworkBehaviour
   public int GetResources() {
     return resources;
   }
-
-
   public bool CanPlaceBuilding(Building building, Vector3 position) {
     if (building.GetPrice() > resources) {
       return false;
@@ -47,6 +51,11 @@ public class RTSPlayer : NetworkBehaviour
   public void SetResources(int newValue) {
     resources = newValue;
   }
+  [Server]
+  public void SetTeamColor(Color color) {
+    teamColor = color;
+  }
+
   [Command]
   public void CmdTryPlaceBuilding(int buildingId, Vector3 position)
   {

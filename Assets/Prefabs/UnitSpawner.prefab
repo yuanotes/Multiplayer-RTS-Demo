@@ -233,6 +233,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2840798748462850053, guid: 2602a1345703b2c4593ae34e2afb0f43, type: 3}
   m_PrefabInstance: {fileID: 6404990883610362287}
   m_PrefabAsset: {fileID: 0}
+--- !u!23 &2429525155293782276 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 8742737054349090987, guid: 2602a1345703b2c4593ae34e2afb0f43, type: 3}
+  m_PrefabInstance: {fileID: 6404990883610362287}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6513880986663854881
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -260,6 +265,10 @@ PrefabInstance:
       propertyPath: price
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 809444192883889137, guid: a43fee60b394d604e966d5dd7f12e5e0, type: 3}
+      propertyPath: mainRenderer
+      value: 
+      objectReference: {fileID: 2429525155293782276}
     - target: {fileID: 809444192883889137, guid: a43fee60b394d604e966d5dd7f12e5e0, type: 3}
       propertyPath: buildingPreview
       value: 
@@ -356,6 +365,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: UnitSpawner
       objectReference: {fileID: 0}
+    - target: {fileID: 7623385969529035552, guid: a43fee60b394d604e966d5dd7f12e5e0, type: 3}
+      propertyPath: renderers.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7623385969529035552, guid: a43fee60b394d604e966d5dd7f12e5e0, type: 3}
+      propertyPath: renderers.Array.data[0]
+      value: 
+      objectReference: {fileID: 2429525155293782276}
     - target: {fileID: 7722334153205425890, guid: a43fee60b394d604e966d5dd7f12e5e0, type: 3}
       propertyPath: m_IsActive
       value: 1
