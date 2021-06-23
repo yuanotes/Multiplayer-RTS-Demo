@@ -292,8 +292,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99dc4f55f53d13e45ae2caae2e6c126d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraInMinimap: {fileID: 0}
-  ratio: 0.1
   miniMapRect: {fileID: 478337388260359062}
-  cameraScale: 10
+  cameraScale: 50
   offsetZ: -5
