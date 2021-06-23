@@ -5,6 +5,7 @@ using System;
 
 public class RTSPlayer : NetworkBehaviour
 {
+  [SerializeField] private Transform cameraTransform = null;
   [SerializeField] private float buildingDistance = 2f;
   [SerializeField] private Building[] buildings = new Building[0];
   [SerializeField] private LayerMask buildingBlockLayer = new LayerMask();
@@ -15,6 +16,10 @@ public class RTSPlayer : NetworkBehaviour
 
   public Color GetTeamColor() {
     return teamColor;
+  }
+
+  public Transform GetCameraTransform() {
+    return cameraTransform;
   }
 
   [SyncVar(hook = nameof(onUpdateResources))]

@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 22262414003723225}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.7187206, y: 11.427365, z: 9.37121}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3749547511014383050}
@@ -218,6 +218,7 @@ GameObject:
   - component: {fileID: 478337388260359062}
   - component: {fileID: 1926805024600072622}
   - component: {fileID: 1093749386612791933}
+  - component: {fileID: 6953480734866986708}
   m_Layer: 5
   m_Name: MiniMap
   m_TagString: Untagged
@@ -279,3 +280,20 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
+--- !u!114 &6953480734866986708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8048350852629058755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99dc4f55f53d13e45ae2caae2e6c126d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraInMinimap: {fileID: 0}
+  ratio: 0.1
+  miniMapRect: {fileID: 478337388260359062}
+  cameraScale: 10
+  offsetZ: -5

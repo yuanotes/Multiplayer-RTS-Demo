@@ -108,6 +108,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
+  cameraTransform: {fileID: 8523532415547518290}
   buildingDistance: 5
   buildings:
   - {fileID: 5863208472931070160, guid: f14d97422fe06d341a5e6e8d8f581511, type: 3}
