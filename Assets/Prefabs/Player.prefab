@@ -134,10 +134,12 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   playerCameraTransform: {fileID: 8523532415547518290}
-  speed: 20
+  moveSpeed: 20
+  scrollSpeed: 40
   screenBorder: 10
   screenXLimits: {x: -45, y: 45}
   screenZLimits: {x: -55, y: 35}
+  screenYLimits: {x: 10, y: 20}
 --- !u!1 &8432429305504294581
 GameObject:
   m_ObjectHideFlags: 0
