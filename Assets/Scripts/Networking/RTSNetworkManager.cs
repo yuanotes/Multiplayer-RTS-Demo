@@ -6,12 +6,12 @@ using UnityEngine.SceneManagement;
 public class RTSNetworkManager : NetworkManager
 {
 
-  [SerializeField] private GameObject spawnUnitPrefab = null;
+  [SerializeField] private GameObject unitBasePrefab = null;
   [SerializeField] private GameObject gameOverHandlerPrefab = null;
 
   [SerializeField]
   private Color[] teamColors = new Color[]{
-    Color.white, Color.black, Color.blue, Color.grey, Color.magenta, Color.cyan, Color.yellow
+    Color.blue, Color.grey, Color.magenta, Color.cyan, Color.yellow
   };
   [SerializeField] private List<Color> colorsOccured = new List<Color>();
 
@@ -41,7 +41,7 @@ public class RTSNetworkManager : NetworkManager
     player.SetTeamColor(assignTeamColor());
     colorsOccured.Add(player.GetTeamColor());
 
-    GameObject unitSpawnerInstance = Instantiate(spawnUnitPrefab, conn.identity.transform.position, conn.identity.transform.rotation);
+    GameObject unitSpawnerInstance = Instantiate(unitBasePrefab, conn.identity.transform.position, conn.identity.transform.rotation);
     NetworkServer.Spawn(unitSpawnerInstance, conn);
   }
 

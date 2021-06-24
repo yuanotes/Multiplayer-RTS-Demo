@@ -109,10 +109,12 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   cameraTransform: {fileID: 8523532415547518290}
-  buildingDistance: 5
+  buildingDistance: 20
   buildings:
-  - {fileID: 5863208472931070160, guid: f14d97422fe06d341a5e6e8d8f581511, type: 3}
+  - {fileID: 7331019498070260285, guid: 88cd745a9c28ce8448d9625e57ccb82f, type: 3}
   - {fileID: 5863208472931070160, guid: a9806a7319b63d34ab1e19560ac1d580, type: 3}
+  - {fileID: 6518082092257409777, guid: 7c322a5b35943c0479de947cff71d044, type: 3}
+  - {fileID: 5863208472931070160, guid: ef28e6016478cd34faef7d24a6b2050d, type: 3}
   buildingBlockLayer:
     serializedVersion: 2
     m_Bits: 321

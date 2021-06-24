@@ -64,14 +64,26 @@ MonoBehaviour:
   autoCreatePlayer: 1
   playerSpawnMethod: 1
   spawnPrefabs:
-  - {fileID: 1712699935350839994, guid: 5d3b11b3574684ecca3dfaa7fffc4bc4, type: 3}
   - {fileID: 222141808946448978, guid: ef28e6016478cd34faef7d24a6b2050d, type: 3}
-  - {fileID: 7201763360714844224, guid: e35d19454850a4c8ab415fbeced0c328, type: 3}
   - {fileID: 116453974631075929, guid: c2e2c7c1d7f68a34ebbbc7c3ba4fce03, type: 3}
-  - {fileID: 222141808946448978, guid: f14d97422fe06d341a5e6e8d8f581511, type: 3}
   - {fileID: 222141808946448978, guid: a9806a7319b63d34ab1e19560ac1d580, type: 3}
-  spawnUnitPrefab: {fileID: 222141808946448978, guid: ef28e6016478cd34faef7d24a6b2050d, type: 3}
+  - {fileID: 556610975764527707, guid: 469f467ff29acbc40a91d5c0233ce5ce, type: 3}
+  - {fileID: 8985272503189594944, guid: b03f7c95a23343c4aab0f937be3c5715, type: 3}
+  - {fileID: 4032545355293343935, guid: 88cd745a9c28ce8448d9625e57ccb82f, type: 3}
+  - {fileID: 6449977330726943890, guid: 3fb057deaa789374786a1e13976b2fef, type: 3}
+  - {fileID: 7047953774528026071, guid: af64a4b5199560644b13c32d5d239e10, type: 3}
+  - {fileID: 594361789728129139, guid: 7c322a5b35943c0479de947cff71d044, type: 3}
+  unitBasePrefab: {fileID: 222141808946448978, guid: ef28e6016478cd34faef7d24a6b2050d, type: 3}
   gameOverHandlerPrefab: {fileID: 116453974631075929, guid: c2e2c7c1d7f68a34ebbbc7c3ba4fce03, type: 3}
+  teamColors:
+  - {r: 1, g: 1, b: 1, a: 1}
+  - {r: 0, g: 0, b: 0, a: 1}
+  - {r: 0, g: 0, b: 1, a: 1}
+  - {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  - {r: 1, g: 0, b: 1, a: 1}
+  - {r: 0, g: 1, b: 1, a: 1}
+  - {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  colorsOccured: []
 --- !u!114 &9057177908932178064
 MonoBehaviour:
   m_ObjectHideFlags: 0

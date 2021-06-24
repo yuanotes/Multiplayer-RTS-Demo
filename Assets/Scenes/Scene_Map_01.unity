@@ -453,6 +453,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: BuildingDisplay
       objectReference: {fileID: 0}
+    - target: {fileID: 4741096395661233064, guid: b1c0628415cc1cc44b30cd463fd4823c, type: 3}
+      propertyPath: building
+      value: 
+      objectReference: {fileID: 7331019498070260285, guid: 88cd745a9c28ce8448d9625e57ccb82f, type: 3}
+    - target: {fileID: 4741096395661233064, guid: b1c0628415cc1cc44b30cd463fd4823c, type: 3}
+      propertyPath: buildingPreviewInstance
+      value: 
+      objectReference: {fileID: 2840327760010156482, guid: fceb0a3ee3a50cc44b534afddc683eed, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b1c0628415cc1cc44b30cd463fd4823c, type: 3}
 --- !u!1001 &451676676
